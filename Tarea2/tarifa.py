@@ -3,7 +3,7 @@
            Alejandra Preciado 07-41384
 '''
 
-class Tarifa:
+class Tarifas:
     
     def __init__(self, tasaDiurna, tasaNocturna):
         self.tasaDiurna = tasaDiurna

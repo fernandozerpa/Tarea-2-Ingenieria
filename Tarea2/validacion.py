@@ -2,8 +2,10 @@
  @authors: Fernando Zerpa 05-39081
            Alejandra Preciado 07-41384
 '''
+
 import datetime
-import Calculos
+from calculo import Calculos
+from decimal import Decimal , ROUND_HALF_UP
 
 class Validaciones:
     
@@ -22,6 +24,8 @@ class Validaciones:
     def tasaValida(self,tasa):
         if (tasa < 0):
             raise Exception("La tasa Diurna y Nocturna no pueden ser negativas")
+        if (tasa != Decimal(tasa.quantize(Decimal('.01'), rounding=ROUND_HALF_UP))):
+            raise Exception("La tasa debe estar expresada en bolivares y centimos(dos digitos), por ejemplo 100.34")
         
     def tiempoReservaValido(self, fechaIni, fechaFin):        
         reserva = Calculos()
