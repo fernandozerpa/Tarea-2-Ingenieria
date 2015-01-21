@@ -14,9 +14,14 @@ class CasosDePrueba(unittest.TestCase):
         res = Reservas(fechaIni,fechaFin,horaIni,HoraFin,tarifa)
         return res.main()
     
-    def test1(self):
+    def testMaximoNroHoras(self):
         tarif = Tarifas("100","200")
-        self.failUnless(10800 == self.reservaciones("01/01/0001","04/01/0001","00:00","00:00",tarif))
+        self.assertEqual(self.reservaciones("20/01/2015","23/01/2015","00:00","00:00",tarif), 10800) 
+        
+    def testMinimoNroHorasNocturna(self):
+        tarif = Tarifas("100","200")
+        self.assertEqual(self.reservaciones("20/01/2015","20/01/2015","00:00","00:15",tarif), 200) 
+        
         
 if __name__ == '__main__':
     unittest.main()   
