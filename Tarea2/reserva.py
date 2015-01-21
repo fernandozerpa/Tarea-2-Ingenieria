@@ -85,7 +85,6 @@ class Reservas:
         
         """calculamos el monto final a pagar"""
         montoAPagar = Calculos()
-        print(montoAPagar.calcularMontoTotal(fechaIniCompleta, fechaFinCompleta, tarifas))
         return montoAPagar.calcularMontoTotal(fechaIniCompleta, fechaFinCompleta, tarifas) 
         
         
